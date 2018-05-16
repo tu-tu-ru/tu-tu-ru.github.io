@@ -17,7 +17,7 @@ Windows+R 打开 run
 输入 `cmd`
 
 在 `>` 后边依次输入这些
-``C:\Users\Bear>C:
+``C:\Users\Bear>C: \n
 C:\Users\Bear>cd\
 C:\>cd users
 C:\Users>cd Bear
