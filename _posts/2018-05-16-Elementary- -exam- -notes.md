@@ -10,15 +10,16 @@ tags:
     - 生活常识
 ---
 
-## `sort()` 和 `sorted()` 的用法
+## 函数 `sort()` 和 `sorted()` 的用法
 
 ### `sorted()`
-  用 `help(sorted)` 查看文档里对这个函数的解释是这样的：
+用 `help(sorted)` 查看文档里对这个函数的解释是这样的：
 
 >sorted(iterable, key=None, reverse=False)
->		Return a new list containing all items from the iterable in ascending order.
 >
->​	A custom key function can be supplied to customize the sort order, and the reverse flag can be set to request the result in descending order.
+>Return a new list containing all items from the iterable in ascending order.
+>
+>A custom key function can be supplied to customize the sort order, and the reverse flag can be set to request the result in descending order.
 
 从这个解释可以看出，有 `key` 和 `reverse` 两个参数可以改变返回的新 list 的形态。以下是几个示例：
 
@@ -26,19 +27,24 @@ tags:
 
 这里的 key 实际上是一个作用于 list 里的每个元素的函数，that is to say 这个函数接收的参数是前面的可迭代对象（iterable）中的每一个元素。
 
-这是一个简单的对列表里的每个元素（`<string>`）排序，`key=len`，让这个新列表按字符串的长度排 ascending 顺序
+这是一个简单的对列表里的每个元素（\<string>）排序，`key=len`，让这个新列表按字符串的长度排 ascending 顺序
 
-`sorted(['bear','are','you','hungry','now','?'],key=len,reverse=False)`
+```python
+sorted(['bear','are','you','hungry','now','?'],key=len,reverse=False)
+```
+
+
 
 输出：`['?', 'are', 'you', 'now', 'bear', 'hungry']`
 
 `key` 用到的这个函数可以和 `lambda` 结合使用，比如以下这个例子，利用一个 dictionary 里的 value 们的数值大小给内含的所有 key-value pair 重新排序。
 
-`dic={'b':3,'a':5,'c':9,'d':2}` 
+```python
+dic={'b':3,'a':5,'c':9,'d':2} 
+sorted(dic.items(), key=lambda x: x[1])
+```
 
-`sorted(dic.items(), key=lambda x: x[1])` 
-
-输出：`[('d', 2), ('b', 3), ('a', 5), ('c', 9)]` 
+ 输出：`[('d', 2), ('b', 3), ('a', 5), ('c', 9)]` 
 
 #### 设置 ascending/descending 顺序
 
@@ -54,15 +60,17 @@ tags:
 2. Difference in syntax. `<list>.sort()` 和 `sorted(<list>)` 的区别。
 3. 以下示例可以解释这两个函数对原有可迭代对象的不同作用
 
-`a=[0,1,2,3,6,5,4]`
-
-`b=a.sort()`
-
-`type(b)`
+```python
+a=[0,1,2,3,6,5,4]
+b=a.sort()
+type(b)
+```
 
 这里查看 type 的结果是 `None`，也就是说 `a.sort()` 这个操作的结果是没有返回任何新的东西, e.g. a new, modified list，仅仅是改变的原来的 list。
 
-`a`
+```python
+a
+```
 
 输出：`[0, 1, 2, 3, 4, 5, 6]`
 
