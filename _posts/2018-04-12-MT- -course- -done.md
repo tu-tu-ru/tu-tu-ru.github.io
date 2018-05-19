@@ -4,7 +4,7 @@ title:      MT course done
 subtitle:     
 date:       2018-04-12              
 author:     Bear                     
-header-img: https://github.com/tu-tu-ru/tu-tu-ru.github.io/blob/master/img/0409.png    
+header-img: blob/master/img/0409.png    
 catalog: true                       
 tags:                              
     - Life
